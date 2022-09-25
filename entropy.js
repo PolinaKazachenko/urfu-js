@@ -1,4 +1,4 @@
-s = 'good night';
+s = 'good';
 alph = new Array();
 for(i = 0; i < s.length; i++){
     if (s.charAt(i) in alph)
@@ -15,5 +15,8 @@ h = 0;
 for(i in alph){
     h -= alph[i] * Math.log(alph[i]);
 }
-h /= Math.log(n)
+if (Math.log(n) == 0)
+	h = 0;
+else
+	h /= Math.log(n);
 console.log(h)
