@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title>Hamming code</title>
+	<text>Казаченко Полина КНМО-101</text>
+	<script>
+	function code() {
+		let message = document.getElementById('InputMessage').value.split();
+		let mes = Number(message);
+		let number = [(Math.floor(mes / 1000)), ((Math.floor(mes / 100)) % 10), ((Math.floor(mes / 10)) % 10), (mes % 10)];
+		if ((number[0] < 2) && (number[1] < 2) && (number[2] < 2) && (number[3] < 2)) {
+			if (((number[0] + number[1] + number[3]) % 2) == 0) {
+				message += '0'
+			} else {
+				message += '1'
+			}
+			if (((number[1] + number[2] + number[3]) % 2) == 0) {
+				message += '0'
+			} else {
+				message += '1'
+			}
+			if (((number[0] + number[2] + number[3]) % 2) == 0) {
+				message += '0'
+			} else {
+				message += '1'
+			}
+		} else {
+			alert('Error. You can use only "0" and "1" and only 4 symbols. Try again')
+		}
+		document.getElementById('CodedMessage').value = message
+	}
+	</script>
+	<script>
+	function decode() {
+		let sentence = document.getElementById('CodedMessage').value.split();
+		let numeral = Number(sentence);
+		let digit = [(Math.floor(numeral / 1000000)), ((Math.floor(numeral / 100000)) % 10), ((Math.floor(numeral / 10000)) % 10), ((Math.floor(numeral / 1000)) % 10), ((Math.floor(numeral / 100)) % 10), ((Math.floor(numeral / 10)) % 10), (numeral % 10)];
+		let n0, n1, n2, n3;
+		if ((digit[0] < 2) && (digit[1] < 2) && (digit[2] < 2) && (digit[3] < 2) && (digit[4] < 2) && (digit[5] < 2) && (digit[6] < 2)) {
+			if (digit[4] == (digit[0] + digit[1] + digit[3]) % 2) {
+				n0 = String(digit[0])
+				n1 = String(digit[1])
+				n3 = String(digit[3])
+				if (digit[5] == (digit[1] + digit[2] + digit[3]) % 2) {
+					n2 = String(digit[2])
+				} else {
+					if (digit[2] == 1) {
+						digit[2] = 0
+					} else {
+						digit[2] = 1
+					}
+					n2 = String(digit[2])
+				}
+			} else if (digit[5] == (digit[1] + digit[2] + digit[3]) % 2) {
+				n1 = String(digit[1])
+				n2 = String(digit[2])
+				n3 = String(digit[3])
+				if (digit[4] == (digit[0] + digit[1] + digit[3]) % 2) {
+					n0 = String(digit[0])
+				} else {
+					if (digit[0] == 1) {
+						digit[0] = 0
+					} else {
+						digit[0] = 1
+					}
+					n0 = String(digit[0])
+				}
+			} else if (digit[6] == (digit[0] + digit[2] + digit[3]) % 2) {
+				n0 = String(digit[0])
+				n2 = String(digit[2])
+				n3 = String(digit[3])
+				if (digit[4] == (digit[0] + digit[1] + digit[3]) % 2) {
+					n1 = String(digit[1])
+				} else {
+					if (digit[1] == 1) {
+						digit[1] = 0
+					} else {
+						digit[1] = 1
+					}
+					n1 = String(digit[1])
+				}
+			} else {
+				n0 = String(digit[0])
+				n1 = String(digit[1])
+				n2 = String(digit[2])
+				if (digit[3] == 1) {
+						digit[3] = 0
+					} else {
+						digit[3] = 1
+					}
+					n3 = String(digit[3])
+			}
+		} else {
+			alert('Error. You can use only "0" and "1" and only 7 symbols. Try again')
+		}
+		document.getElementById('DecodedMessage').value = n0 + n1 + n2 + n3
+	}
+	</script>
+</head>
+<body>
+	<h1>Hamming code</h1>
+	<p><input type = 'text' id = 'InputMessage'/> four bites to code</p>
+	<p><input type = 'Button' value='To code' onClick = 'code()'/></p>
+	<p><input type = 'text' id = 'CodedMessage'/> encoded message</p>
+	<p><input type = 'Button' value = 'To decode' onClick = 'decode()'/></p>
+	<p><input type = 'text' id = 'DecodedMessage'/> decoded message</p>
+</body>
+</html>
