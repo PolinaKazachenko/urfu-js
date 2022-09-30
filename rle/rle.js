@@ -3,6 +3,8 @@ let arg = process.argv;
 let inText;
 let count = 1; answer = ''; compression = 0;
 
+//КАЗАЧЕНКО ПОЛИНА КНМО-101
+
 fs.readFile('input.txt', (err, data) => {
 	string = data.toString()
 	for (i = 1; i <= string.length; i++){
