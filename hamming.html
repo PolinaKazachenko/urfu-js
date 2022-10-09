@@ -42,12 +42,14 @@
 				n3 = String(digit[3])
 				if (digit[5] == (digit[1] + digit[2] + digit[3]) % 2) {
 					n2 = String(digit[2])
-				} else {
+				} else if (digit[6] != (digit[0] + digit[2] + digit[3]) % 2){
 					if (digit[2] == 1) {
 						digit[2] = 0
 					} else {
 						digit[2] = 1
 					}
+					n2 = String(digit[2])
+				} else {
 					n2 = String(digit[2])
 				}
 			} else if (digit[5] == (digit[1] + digit[2] + digit[3]) % 2) {
@@ -72,12 +74,14 @@
 				n3 = String(digit[3])
 				if (digit[4] == (digit[0] + digit[1] + digit[3]) % 2) {
 					n1 = String(digit[1])
-				} else {
+				} else if (digit[5] != (digit[1] + digit[2] + digit[3]) % 2){
 					if (digit[1] == 1) {
 						digit[1] = 0
 					} else {
 						digit[1] = 1
 					}
+					n1 = String(digit[1])
+				} else {
 					n1 = String(digit[1])
 				}
 			} else {
