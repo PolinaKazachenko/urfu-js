@@ -69,3 +69,6 @@ for (i = 0; i < codedText.length; i++){
 	}	
 }
 fs.writeFileSync('decodedTextForCaesar.txt', decodedText);
+
+console.log("The original text is equal to the decoded: " + (textforcaesar == decodedText));
+console.log("Coded and decoded texts you can see in the files");
