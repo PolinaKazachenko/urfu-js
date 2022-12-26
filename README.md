@@ -1,8 +1,8 @@
 Здравствуйте!
 Следующие задачи не проверены:
-1) RLE
+1) Caesar
 2) Hamming
-3) Caesar
+3) RLE
 4) Brude force & Hash
 5) Automata
 6) Boyer Moore
