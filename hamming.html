@@ -7,7 +7,9 @@
 		let message = document.getElementById('InputMessage').value.split();
 		let mes = Number(message);
 		let number = [(Math.floor(mes / 1000)), ((Math.floor(mes / 100)) % 10), ((Math.floor(mes / 10)) % 10), (mes % 10)];
-		if ((number[0] < 2) && (number[1] < 2) && (number[2] < 2) && (number[3] < 2)) {
+		if (String(message).length != 4) {
+			alert('Error. You can use only 4 symbols. Try again')
+		} else if ((number[0] < 2) && (number[1] < 2) && (number[2] < 2) && (number[3] < 2)) {
 			if (((number[0] + number[1] + number[3]) % 2) == 0) {
 				message += '0'
 			} else {
@@ -23,10 +25,10 @@
 			} else {
 				message += '1'
 			}
+			document.getElementById('CodedMessage').value = message
 		} else {
-			alert('Error. You can use only "0" and "1" and only 4 symbols. Try again')
+			alert('Error. You can use only "0" and "1". Try again')
 		}
-		document.getElementById('CodedMessage').value = message
 	}
 	</script>
 	<script>
@@ -35,7 +37,9 @@
 		let numeral = Number(sentence);
 		let digit = [(Math.floor(numeral / 1000000)), ((Math.floor(numeral / 100000)) % 10), ((Math.floor(numeral / 10000)) % 10), ((Math.floor(numeral / 1000)) % 10), ((Math.floor(numeral / 100)) % 10), ((Math.floor(numeral / 10)) % 10), (numeral % 10)];
 		let n0, n1, n2, n3;
-		if ((digit[0] < 2) && (digit[1] < 2) && (digit[2] < 2) && (digit[3] < 2) && (digit[4] < 2) && (digit[5] < 2) && (digit[6] < 2)) {
+		if (String(sentence).length != 7) {
+			alert('Error. You can use only 7 symbols. Try again')
+		} else if ((digit[0] < 2) && (digit[1] < 2) && (digit[2] < 2) && (digit[3] < 2) && (digit[4] < 2) && (digit[5] < 2) && (digit[6] < 2)) {
 			if (digit[4] == (digit[0] + digit[1] + digit[3]) % 2) {
 				n0 = String(digit[0])
 				n1 = String(digit[1])
@@ -95,10 +99,10 @@
 					}
 					n3 = String(digit[3])
 			}
+			document.getElementById('DecodedMessage').value = n0 + n1 + n2 + n3
 		} else {
-			alert('Error. You can use only "0" and "1" and only 7 symbols. Try again')
+			alert('Error. You can use only "0" and "1". Try again')
 		}
-		document.getElementById('DecodedMessage').value = n0 + n1 + n2 + n3
 	}
 	</script>
 </head>
