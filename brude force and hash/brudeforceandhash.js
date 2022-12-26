@@ -1,10 +1,9 @@
+//Казаченко Полина КНМО-101
+
 let fs = require('fs');
 
 let string = fs.readFileSync("Tolstoy Leo. War and Peace - royallib.com.txt").toString();
 let template = fs.readFileSync("template.txt").toString();
-
-//console.log(string);
-//console.log(template);
 
 let positions = new Array();
 let count = 0;
@@ -34,12 +33,9 @@ function brudeForce(){
 	console.log('Time for Brude Force: ' + time);
 }
 
+
 console.log('Brude force:');
-//let start = new Date().getTime();
 brudeForce();
-//let end = new Date().getTime();
-//let time = end - start;
-//console.log('Time for Brude Force: ' + time);
 
 let hashTemplate = 0;
 let hashString = 0;
@@ -88,8 +84,4 @@ function hash(){
 }
 
 console.log('Hash:');
-//start = new Date().getTime();
 hash();
-/*end = new Date().getTime();
-time = end - start;
-console.log('Time for Hash: ' + time);*/

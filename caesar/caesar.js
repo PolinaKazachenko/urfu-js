@@ -1,3 +1,5 @@
+//Казаченко Полина КНМО-101
+
 let fs = require('fs');
 var textforcaesar = fs.readFileSync('textforcaesar.txt').toString();
 var canonicalFrequency = fs.readFileSync('canonicalfrequency.txt').toString().split("\n");
